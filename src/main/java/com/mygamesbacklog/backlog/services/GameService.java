@@ -10,7 +10,6 @@ import com.mygamesbacklog.backlog.dto.GameMinDTO;
 import com.mygamesbacklog.backlog.entities.Game;
 import com.mygamesbacklog.backlog.repositories.GameRepository;
 
-import jakarta.transaction.Transactional;
 
 @Component //Component (ou @Service) precisa ser registrado pelo framework
 public class GameService {
