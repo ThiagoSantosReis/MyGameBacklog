@@ -1,4 +1,4 @@
-package com.mygamesbacklog.backlog;
+package com.mygamesbacklog.backlog.dto;
 
 import com.mygamesbacklog.backlog.entities.Game;
 
