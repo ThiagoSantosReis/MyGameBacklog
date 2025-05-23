@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import com.mygamesbacklog.backlog.dto.GameDTO;
 import com.mygamesbacklog.backlog.dto.GameMinDTO;
 import com.mygamesbacklog.backlog.entities.Game;
+import com.mygamesbacklog.backlog.projections.GameMinProjection;
 import com.mygamesbacklog.backlog.repositories.GameRepository;
 
 
@@ -30,6 +31,12 @@ public class GameService {
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
 	public List<GameMinDTO> findAll(){
 		var result = gameRepository.findAll();
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
+	}
+	
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public List<GameMinDTO> findByList(Long listId){
+		List<GameMinProjection> result = gameRepository.searchByList(listId);
 		return result.stream().map(x -> new GameMinDTO(x)).toList();
 	}
 	
